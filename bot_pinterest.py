@@ -1,10 +1,10 @@
-"""bot_pinterest.py — ربات دانلود پینترست. این فایل به‌همراه core/ قابل فروش/تحویل جداگانه است."""
+"""bot_pinterest.py — ربات دانلود پینترست. این فایل به‌همراه common.py، bot_factory.py و ماژول همون پلتفرم قابل فروش/تحویل جداگانه است."""
 
 import os
 from dotenv import load_dotenv
 
-from core import pinterest
-from core.bot_factory import build_bot
+import pinterest
+from bot_factory import build_bot
 
 load_dotenv()
 
@@ -20,7 +20,7 @@ def start_pinterest_bot():
 
     bot = build_bot(token, pinterest, free_use_limit=free_use_limit, contact_info=contact_info)
     print("✅ ربات پینترست روشن شد.")
-    bot.infinite_polling(timeout=60, long_polling_timeout=60)
+    bot.infinity_polling(timeout=60, long_polling_timeout=60)
 
 
 if __name__ == "__main__":

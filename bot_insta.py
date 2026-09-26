@@ -1,10 +1,10 @@
-"""bot_insta.py — ربات دانلود اینستاگرام. این فایل به‌همراه core/ قابل فروش/تحویل جداگانه است."""
+"""bot_insta.py — ربات دانلود اینستاگرام. این فایل به‌همراه common.py، bot_factory.py و ماژول همون پلتفرم قابل فروش/تحویل جداگانه است."""
 
 import os
 from dotenv import load_dotenv
 
-from core import instagram
-from core.bot_factory import build_bot
+import instagram
+from bot_factory import build_bot
 
 load_dotenv()
 
@@ -20,7 +20,7 @@ def start_insta_bot():
 
     bot = build_bot(token, instagram, free_use_limit=free_use_limit, contact_info=contact_info)
     print("✅ ربات اینستاگرام روشن شد.")
-    bot.infinite_polling(timeout=60, long_polling_timeout=60)
+    bot.infinity_polling(timeout=60, long_polling_timeout=60)
 
 
 if __name__ == "__main__":

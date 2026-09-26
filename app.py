@@ -8,8 +8,11 @@ app.py
 import os
 from dotenv import load_dotenv
 
-from core import instagram, youtube, tiktok, pinterest
-from core.bot_factory import build_bot
+import instagram
+import youtube
+import tiktok
+import pinterest
+from bot_factory import build_bot
 from keep_alive import keep_alive
 
 load_dotenv()
@@ -40,7 +43,7 @@ def main():
     contact_info = os.getenv("SELLER_CONTACT", "")
     bot = build_bot(token, module, free_use_limit=free_use_limit, contact_info=contact_info)
     print(f"✅ ربات {module.PLATFORM_NAME} روشن شد.")
-    bot.infinite_polling(timeout=60, long_polling_timeout=60)
+    bot.infinity_polling(timeout=60, long_polling_timeout=60)
 
 
 if __name__ == "__main__":
